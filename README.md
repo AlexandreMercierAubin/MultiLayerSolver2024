@@ -3,6 +3,8 @@ Matlab code for the multi-layer solver project. This code base provides an imple
 
 Matlab is intuitive which makes the project easy to setup and results quickly reproducable. To test the various scenes featured in the paper, simply follow the instructions below then open an example file and click play in the editor. Alternatively the name of the example can be called in the command prompt which will launch the simulation. The scenes feature heterogenous materials, multiple objects, scripted animations, surface mapping and more!
 
+The preprint is available on my website : https://www.alexandremercieraubin.com/Work/papers/MultiLayerXPBD/
+
 ## How to use
 
 ### Dependencies
