@@ -41,7 +41,7 @@ layerType = 0; % 0: strain rate 1: random 2:eigs
 useGravityConstraints = true;
 
 settings.plotFrameTimeHistogram = true;
-hangingStop = 100;
+hangingStop = iterations;
 giveUpEnabled = false;
 
 boundaryCompliance = 1e-9;
@@ -110,13 +110,12 @@ settings.plotLayers = true;
 settings.residualRange = [-1,0.2];
 % settings.DrawEDots = true;
 settings.overwriteComparisonPositionFrom1 = true;
-settings.FramesToRecord = 5/h;
+settings.FramesToRecord = 200;
 settings.InitialWindowPosition = [0, 0, 1920, 1080];
     settings.VideoOut = path+string(settings.SceneName)+"/"+string(percentageImprovement);
 
-% td = simulate( {mesh2da,mesh2da2, mesh2da3}, {integrator,integrator2,integrator3}, h, settings, rigid, pcf, NullContactFinder(), NullAnimationScript(), StVenantKirchoffEnergy());
 td = simulate( {mesh2da, mesh2da3}, {integrator,integrator3}, h, settings, rigid, NullContactFinder(), NullContactFinder(), NullAnimationScript(), StVenantKirchoffEnergy());
 save(path+string(settings.SceneName)+"/"+string(percentageImprovement)+string(settings.SceneName)+".mat", 'td');
-    % writeTDcsv(td, path+string(settings.SceneName)+"/"+string(percentageImprovement)+string(settings.SceneName), ["_elastic","_xpbdLayer", "_xpbdResLayer"]);
- writeTDcsv(td, path+string(settings.SceneName)+"/"+string(percentageImprovement)+string(settings.SceneName), ["_elastic", "_xpbdResLayer"]);  
+% writeTDcsv(td, path+string(settings.SceneName)+"/"+string(percentageImprovement)+string(settings.SceneName), ["_elastic","_xpbdLayer", "_xpbdResLayer"]);
+writeTDcsv(td, path+string(settings.SceneName)+"/"+string(percentageImprovement)+string(settings.SceneName), ["_elastic", "_xpbdResLayer"]);  
 end

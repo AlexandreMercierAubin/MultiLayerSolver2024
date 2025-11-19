@@ -1,0 +1,1 @@
+generateMesh("2d/data/forestTree.svg",'MinAngle',32)
